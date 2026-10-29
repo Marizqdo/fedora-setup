@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # comprobar.sh · Versiones del entorno. Ejecutar en ambos equipos y comparar.
 echo "equipo:     $(hostname)"
-echo "fedora:     $(cat /etc/fedora-release)"
+echo "sistema:    $(. /etc/os-release && echo "$PRETTY_NAME")"
 echo "git:        $(git --version)"
 echo "make:       $(make --version | head -1)"
 echo "docker:     $(docker run --rm hello-world 2>&1 | grep -o 'Hello from Docker!' || echo 'FALLA')"
