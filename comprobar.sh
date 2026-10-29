@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# comprobar.sh · Versiones del entorno. Ejecutar en ambos equipos y comparar.
+echo "equipo:     $(hostname)"
+echo "fedora:     $(cat /etc/fedora-release)"
+echo "git:        $(git --version)"
+echo "make:       $(make --version | head -1)"
+echo "docker:     $(docker run --rm hello-world 2>&1 | grep -o 'Hello from Docker!' || echo 'FALLA')"
+echo "compose:    $(docker compose version)"
+echo "uv:         $(uv --version)"
+echo "python3.12: $(uv python find 3.12)"
+echo "vscode:     $(code --version | head -1)"
+echo "dbeaver:    $(flatpak list --app --columns=application,version | grep -i dbeaver)"
+echo "terraform:  $(terraform -version | head -1)"
+echo "az:         $(az version --query '"azure-cli"' -o tsv)"
+echo "databricks: $(databricks --version)"
