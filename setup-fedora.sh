@@ -46,8 +46,8 @@ sudo dnf config-manager addrepo --overwrite \
   --from-repofile=https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
 sudo dnf install -y terraform
 
-echo "==> 7. Azure CLI"
-sudo dnf install -y azure-cli
+echo "==> 7. Azure CLI (con uv, aislado y con Python 3.12)"
+uv tool install --python 3.12 azure-cli
 
 echo "==> 8. Databricks CLI"
 if ! command -v databricks >/dev/null; then
